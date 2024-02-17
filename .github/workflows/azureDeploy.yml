@@ -15,6 +15,7 @@ jobs:
     - name: Sanitize docker-compose.yml
       run: |
         sed -i '/develop:/,/depends_on:/!d;//d' docker-compose.yml
+        cat docker-compose.yml
 
     - name: Install SSH key
       run: |
