@@ -22,6 +22,6 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
 
     - name: copia dei file sulla VM
-      run: |
+      run: | 
         dir
         scp -o StrictHostKeyChecking=no -r * ${{ secrets.USER }}@${{ secrets.HOST }}:~${{ github.event.repository.name }}/
