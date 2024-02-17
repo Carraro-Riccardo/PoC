@@ -28,4 +28,4 @@ jobs:
 
     - name: copia dei file sulla VM
       run: |
-        scp -o StrictHostKeyChecking=no -r ./${{ github.event.repository.name }}/ ${{ secrets.USER }}@${{ secrets.HOST }}:
+        scp -o StrictHostKeyChecking=no -r ./ ${{ secrets.USER }}@${{ secrets.HOST }}:~${{ github.event.repository.name }}/
