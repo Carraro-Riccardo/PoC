@@ -22,9 +22,9 @@ jobs:
 
     - name: Create SSH key file
       run: |
-        echo "${{ secrets.KEY }}" > id_rsa
-        chmod 600 id_rsa
+        echo "${{ secrets.KEY }}" > id_rsa.pem
+        chmod 600 id_rsa.pem
 
     - name: copia dei file sulla VM
       run: |
-        scp -i ./id_rsa -r ./${{ github.event.repository.name }}/ ${{ secrets.USER }}@${{ secrets.HOST }}:~
+        scp -i ./id_rsa.pem -r ./${{ github.event.repository.name }}/ ${{ secrets.USER }}@${{ secrets.HOST }}:~
