@@ -23,5 +23,8 @@ jobs:
 
     - name: copia dei file sulla VM
       run: |  
-        ssh -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} "mkdir -p /home/${{ secrets.USER }}/{{ github.event.repository.name }} && ls -la ~"
         scp -o StrictHostKeyChecking=no -r * ${{ secrets.USER }}@${{ secrets.HOST }}:/home/${{ secrets.USER }}/${{ github.event.repository.name }}/
+
+    - name: run docker compose
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} "cd /home/${{ secrets.USER }}/${{ github.event.repository.name }} && docker-compose up --build -d"
