@@ -20,12 +20,12 @@ jobs:
         cd ..
         ls -la
 
-    - name: Create SSH key file
+    - name: Install SSH key
       run: |
-        echo "${{ secrets.KEY }}" > ./id_rsa.pem
-        chmod 600 ./id_rsa.pem
-        cat ./id_rsa.pem
+        mkdir -p ~/.ssh
+        echo "${{ secrets.KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
 
     - name: copia dei file sulla VM
       run: |
-        scp -i ./id_rsa.pem -r ./${{ github.event.repository.name }}/ ${{ secrets.USER }}@${{ secrets.HOST }}:
+        scp -o StrictHostKeyChecking=no -r ./${{ github.event.repository.name }}/ ${{ secrets.USER }}@${{ secrets.HOST }}:
