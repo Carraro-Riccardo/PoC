@@ -12,6 +12,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: look files
+      run: ls -la
+
     - name: copia dei file sulla VM
       uses: appleboy/scp-action@master
       with:
