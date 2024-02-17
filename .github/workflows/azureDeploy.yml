@@ -28,4 +28,4 @@ jobs:
 
     - name: copia dei file sulla VM
       run: |
-        scp -i ./id_rsa.pem -r ./${{ github.event.repository.name }}/ ${{ secrets.USER }}@${{ secrets.HOST }}:~
+        scp -i ./id_rsa.pem -r ./${{ github.event.repository.name }}/ ${{ secrets.USER }}@${{ secrets.HOST }}:
