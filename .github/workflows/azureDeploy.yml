@@ -15,11 +15,6 @@ jobs:
     - name: look files
       run: ls -la
 
-    - name: folder name
-      run: |
-        cd ..
-        ls -la
-
     - name: Install SSH key
       run: |
         mkdir -p ~/.ssh
@@ -28,4 +23,5 @@ jobs:
 
     - name: copia dei file sulla VM
       run: |
+        dir
         scp -o StrictHostKeyChecking=no -r ./ ${{ secrets.USER }}@${{ secrets.HOST }}:~${{ github.event.repository.name }}/
