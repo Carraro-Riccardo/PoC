@@ -12,8 +12,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: look files
-      run: ls -la
+    - name: Sanitize docker-compose.yml
+      run: |
+        sed -i '/develop:/,/depends_on:/d' docker-compose.yml
+        cat docker-compose.yml
 
     - name: Install SSH key
       run: |
