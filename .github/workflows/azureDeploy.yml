@@ -17,7 +17,6 @@ jobs:
 
     - name: folder name
       run: |
-        echo ${{ github.event.repository.name }}
         cd ..
         ls -la
 
@@ -27,7 +26,7 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.KEY }}
-        source: "./*"
+        source: "./${{ github.event.repository.name }}"
         target: "/"
 
     - name: Run docker compose
