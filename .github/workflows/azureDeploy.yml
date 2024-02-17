@@ -23,5 +23,5 @@ jobs:
 
     - name: copia dei file sulla VM
       run: |  
-        ssh -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} "mkdir -p ~/${{ github.event.repository.name }}"
+        ssh -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} "mkdir -p ~/${{ github.event.repository.name }} && ls -la ~"
         scp -o StrictHostKeyChecking=no -r * ${{ secrets.USER }}@${{ secrets.HOST }}:~${{ github.event.repository.name }}/
