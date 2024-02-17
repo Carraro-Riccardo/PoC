@@ -17,7 +17,7 @@ jobs:
         sed -i '/develop:/,/action: rebuild/d' docker-compose.yml
         cat docker-compose.yml
 
-    - name: Install SSH key
+    - name: Install SSH key 
       run: |
         mkdir -p ~/.ssh
         echo "${{ secrets.KEY }}" > ~/.ssh/id_rsa
