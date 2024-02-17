@@ -24,6 +24,7 @@ jobs:
       run: |
         echo "${{ secrets.KEY }}" > ./id_rsa.pem
         chmod 600 ./id_rsa.pem
+        cat ./id_rsa.pem
 
     - name: copia dei file sulla VM
       run: |
