@@ -20,7 +20,12 @@ jobs:
         cd ..
         ls -la
 
+    - name: Create SSH key file
+      run: |
+        echo "${{ secrets.KEY }}" > id_rsa
+        chmod 600 id_rsa
+
     - name: copia dei file sulla VM
       run: |
-        scp -i ${{ secrets.KEY }} -r ./${{ github.event.repository.name }}/ ${{ secrets.USER }}@${{ secrets.HOST }}:
-        ssh -i ${{ secrets.KEY }} ${{ secrets.USER }}@${{ secrets.HOST }} "ls -la"
+        scp -i ./id_rsa -r ./${{ github.event.repository.name }}/ ${{ secrets.USER }}@${{ secrets.HOST }}:
+        ssh -i ./id_rsa ${{ secrets.USER }}@${{ secrets.HOST }} "ls -la"
