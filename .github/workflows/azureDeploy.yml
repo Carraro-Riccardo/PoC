@@ -22,8 +22,8 @@ jobs:
 
     - name: Create SSH key file
       run: |
-        echo "${{ secrets.KEY }}" > id_rsa.pem
-        chmod 600 id_rsa.pem
+        echo "${{ secrets.KEY }}" > ./id_rsa.pem
+        chmod 600 ./id_rsa.pem
 
     - name: copia dei file sulla VM
       run: |
