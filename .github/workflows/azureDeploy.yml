@@ -28,4 +28,5 @@ jobs:
     - name: copia dei file sulla VM
       run: |
         scp -i ./id_rsa -r ./${{ github.event.repository.name }}/ ${{ secrets.USER }}@${{ secrets.HOST }}:
+        
         ssh -i ./id_rsa ${{ secrets.USER }}@${{ secrets.HOST }} "ls -la"
