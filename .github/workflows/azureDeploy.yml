@@ -27,4 +27,4 @@ jobs:
 
     - name: run docker compose
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} "cd /home/${{ secrets.USER }}/${{ github.event.repository.name }} && docker-compose up --build -d"
+        ssh -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} "cd /home/${{ secrets.USER }}/${{ github.event.repository.name }} && ls && docker-compose up --build -d"
